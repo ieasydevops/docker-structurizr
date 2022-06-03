@@ -1,0 +1,20 @@
+version: "3.5"
+
+networks:
+  default:
+    external:
+      name: structurizr
+volumes:
+  structurizr_data: {}
+
+services:
+
+  structurizr_lite:
+    image: structurizr/lite:${STRUCTURIZR_VERSION}
+    ports:
+      - 8080:8080
+    volumes:
+      - structurizr_data:/usr/local/structurizr
+    restart: always
+
+  
